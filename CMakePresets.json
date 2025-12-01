@@ -1,0 +1,11 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "xcode",
+      "generator": "Xcode",
+      "binaryDir": "build"
+    }
+  ]
+}
+
