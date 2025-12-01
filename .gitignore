@@ -1,7 +1,4 @@
 build/
 *.xcuserstate
-xcuserdata/
-build/
-*.xcuserstate
-xcuserdata/
+*xcuserdata/
 .DS_Store
