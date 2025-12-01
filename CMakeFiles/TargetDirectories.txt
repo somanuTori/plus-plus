@@ -1,0 +1,3 @@
+/Users/solomka/projects/hillel_startet/helloworld/build/CMakeFiles/hello.dir
+/Users/solomka/projects/hillel_startet/helloworld/build/CMakeFiles/ALL_BUILD.dir
+/Users/solomka/projects/hillel_startet/helloworld/build/CMakeFiles/ZERO_CHECK.dir
