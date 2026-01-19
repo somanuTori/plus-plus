@@ -1,4 +1,6 @@
 build/
+bin/
+
 *.xcuserstate
 *xcuserdata/
 .DS_Store
