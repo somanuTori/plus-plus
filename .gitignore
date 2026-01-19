@@ -2,3 +2,7 @@ build/
 *.xcuserstate
 *xcuserdata/
 .DS_Store
+
+test_excersices/
+
+rest.txt

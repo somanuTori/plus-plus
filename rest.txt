@@ -1,0 +1,21 @@
+
+void run_task01_unique_ptr();
+void run_task02_vectors_containers();
+void run_task03_struct();
+void run_pizzza_is_here();
+
+
+//int main() {
+//    std::cout << "Initializing ... youu" << std::endl;
+//
+//    run_task01_unique_ptr();
+//
+//    //run_task02_vectors_containers();
+//    run_task03_struct();
+//    run_pizzza_is_here();
+//
+//
+//
+//    return 0;
+//
+//}
