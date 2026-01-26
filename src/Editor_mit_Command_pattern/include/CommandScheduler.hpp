@@ -2,7 +2,11 @@
 //  CommandScheduler.cpp
 //
 
+#pragma once
 #include <queue>
+#include <memory>
+#include "Document.hpp"
+#include "Command.hpp"
 #include <utility>   // std::move
 
 class CommandScheduler {

@@ -16,39 +16,19 @@
 
 #include <string>
 #include <stdexcept>
-#include <memory>
-#include <iostream>
+#include <cstddef>
 
 
 class Document{
    std::string m_content; //зберігає весь текст документа
 
 public:
-    Document() = defautl;
-    Document(const std::string& initial) : mcontent(initial){}
+    Document() = default;
+    Document(const std::string& initial) : m_content(initial){}
     
     //Document() : ptr(nullptr), count(nullptr) {}
     
-    ~Document(){
-        release();
-    }
-    void release()
-    {
-        //- використовує лічильник для менеджменту пам'яті
-        if (count)
-        {
-            std::cout << "Release: count = " << *count << "\n";
-            --(*count);
-            if (*count == 0)
-            {
-                std::cout << "Deleting resource\n";
-                delete ptr;
-                delete count;
-            }
-        }
-        ptr = nullptr;
-        count = nullptr;
-    }
+    ~Document(){  std::cout << "Document destroyed\n";  }
     
     void insert(size_t pos, const std::string& str){
         //вставити str у m_content починаючи з позиції pos

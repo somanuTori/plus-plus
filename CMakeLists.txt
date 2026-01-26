@@ -1,18 +1,23 @@
-cmake_minimum_required(VERSION 3.25)
-project(BoostyProject)
+cmake_minimum_required(VERSION 3.15)
+project(text_editor_core LANGUAGES CXX)
 
-# 1. Пригнічуємо попередження про застарілий FindBoost
-cmake_policy(SET CMP0167 NEW)
-# 2. Дозволяємо використовувати Boost_ROOT
-cmake_policy(SET CMP0144 NEW)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# 3. Шукаємо Boost.
-# Оскільки ви встановили його в /usr/local, він знайдеться сам.
+set(include
+    include/Document.hpp
+    include/Command.hpp
+    include/CommandScheduler.hpp
+    include/InsertTextCommand.hpp
+    include/EraseTextCommand.hpp
+    include/ReplaceTextCommand.hpp
+)
 
-find_package(Boost 1.90.0 REQUIRED CONFIG)
-add_executable(BoostyProject src/boosty/example.cpp)
+add_executable(Com_patt_editor
+    src/Editor_mit_Command_pattern/main.cpp
+    ${INCLUDE}
+)
 
-# 4. Лінкуємо хедери
-target_link_libraries(BoostyProject Boost::headers)
-
-
+target_include_directories(Com_patt_editor PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+)

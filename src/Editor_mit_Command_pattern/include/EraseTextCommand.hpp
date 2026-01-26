@@ -1,9 +1,15 @@
 //
 //  InsertTextCommand.hpp
-//  
 //
-//  Created by Соломія Серант on 2026-01-24.
-//
+#pragma once
+
+#include "Document.hpp" 
+#include "Command.hpp"
+#include <memory>
+#include <cstddef>
+
+class Document;
+
 class EraseTextCommand : public Command {
     std::weak_ptr<Document> m_doc;
     std::size_t m_position;
@@ -19,5 +25,7 @@ public:
             std::cout << "Document no longer exists. Skipping Erase.\n";
             return;
         }
+        std::cout << "execute(): use_count = " << doc.use_count() << "\n";
         doc->erase(m_position, m_count);
     }
+};

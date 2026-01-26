@@ -1,6 +1,12 @@
 #include <iostream>
 #include <memory>
 
+#include "include/Document.hpp"
+#include "include/CommandScheduler.hpp"
+#include "include/InsertTextCommand.hpp"
+#include "include/EraseTextCommand.hpp"
+#include "include/ReplaceTextCommand.hpp"
+
 int main() {
     auto doc1 = std::make_shared<Document>("Hello");
     auto doc2 = std::make_shared<Document>("World");
@@ -18,7 +24,7 @@ int main() {
     // Команди для doc2
     scheduler.schedule(std::make_unique<InsertTextCommand>(doc2, " framework", doc2->text().size()));
 
-    // Тимчасовий документ, який буде знищений ДО виконання команд
+    // Тимчасовий документ, який буде знищений ДО виконання команд | weak_ptr
     {
         auto tempDoc = std::make_shared<Document>("Temporary document");
         scheduler.schedule(std::make_unique<ReplaceTextCommand>(tempDoc, 0, 9, "ShouldNotAppear"));
