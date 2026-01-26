@@ -28,7 +28,7 @@ public:
     
     //Document() : ptr(nullptr), count(nullptr) {}
     
-    ~Document(){  std::cout << "Document destroyed\n";  }
+    ~Document(){  std::cout << "destructor \n";  }
     
     void insert(size_t pos, const std::string& str){
         //вставити str у m_content починаючи з позиції pos

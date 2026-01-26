@@ -34,8 +34,8 @@ public:
     UniquePtr& operator=(const UniquePtr&) = delete;
     
     // Заборона переміщення (поки що)
-    UniquePtr(UniquePtr&&) = delete;
-    UniquePtr& operator=(UniquePtr&&) = delete;
+    // UniquePtr(UniquePtr&&) = delete;
+    //UniquePtr& operator=(UniquePtr&&) = delete;
     
     // 3. Деструктор (RAII — тут відбувається delete)
     ~UniquePtr() {
@@ -64,6 +64,24 @@ public:
             throw std::runtime_error("Accessing null uniquePtr");
         return ptr;
     }
+    
+    
+    // конструктор переміщення та оператор привоєння в власну реалізацію аналогу  uniquePtr
+    UniquePtr(UniquePtr&& other) noexcept
+            : ptr(other.ptr)
+        {
+            other.ptr = nullptr;
+        }
+    // 4. Оператор привласнення переміщенням (ваша реалізація)
+    UniquePtr& operator=(UniquePtr&& other) noexcept {
+            if (this != &other) {
+                delete ptr;
+                ptr = other.ptr;
+                other.ptr = nullptr;
+            }
+            return *this;
+        }
+    
     
     // Отримати сирий вказівник (без зміни власності)
     int* get() const {
